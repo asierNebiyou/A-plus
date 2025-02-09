@@ -9,10 +9,8 @@ const info = ref({});
 const { contactInfo, isLoading, error, fetchContactInfo, updateContactInfo } =
   useContact();
 
-onMounted(async () => {
-  await fetchContactInfo();
-  info.value = contactInfo.value;
-});
+await fetchContactInfo();
+info.value = contactInfo.value;
 
 const openModal = (source) => {
   modalSource.value = source;
@@ -25,11 +23,11 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-white">
+  <div class="mb-20 bg-white">
     <div
       class="container mx-auto mt-6 px-10 py-16 relative container-lg mx-auto"
     >
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <!-- Left Content -->
         <div class="space-y-6 mb-20 md:m-0">
           <h1 class="text-4xl md:text-5xl font-bold text-[#1E2755]">
