@@ -192,7 +192,7 @@
                   class="w-full p-2.5 border border-gray-200 rounded-lg"
                   type="file"
                   @change="handleFileChange"
-                  :disabled="isUploading"
+                  :disabled="uploading"
                 />
 
                 <div v-if="form.introVideo" class="mt-4">
@@ -221,9 +221,9 @@
             <button
               type="submit"
               class="bg-[#92A75A] text-white px-6 py-2.5 rounded-lg hover:bg-[#7a8c4c] transition-colors"
-              :disabled="isLoading || isUploading"
+              :disabled="isLoading || uploading"
             >
-              <span v-if="isLoading || isUploading">Saving...</span>
+              <span v-if="isLoading || uploading">Saving...</span>
               <span v-else>Save Changes</span>
             </button>
           </div>
@@ -242,11 +242,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
-import { useContact } from "~/composables/useContact";
-import { useUpload } from "@/composables/useUpload";
-const { uploadFile, isUploading } = useUpload();
+import { ref, onMounted, watch, computed } from "vue";
+import { useRuntimeConfig } from "#app";
 import { CheckCircleIcon } from "@heroicons/vue/24/outline";
+
+const config = useRuntimeConfig();
+const folderId = config.public.FOLDER_ID;
+
+const { uploadVideo, uploading } = useGoogleDrive();
 const {
   contactInfo,
   isLoading,
@@ -315,11 +318,9 @@ const getSocialIcon = (platform) => {
 
 const handleSubmit = async () => {
   try {
-    if (file.value && form.value.introVideo) {
-      await deleteFile(form.value.introVideo);
-    }
     if (file.value) {
-      form.value.introVideo = await uploadFile(file.value);
+      form.value.introVideo = await uploadVideo(file.value);
+      console.log(form.value.introVideo);
     }
     await updateContactInfo(form.value);
     showSuccessToast.value = true;
