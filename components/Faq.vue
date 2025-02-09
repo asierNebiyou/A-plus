@@ -111,39 +111,41 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-const { faqs, fetchFaqs, isLoading, error } = useFaq();
-const openIndex = ref(0);
-const faq = ref([
-  {
-    question: "How does tutoring work?",
-    answer:
-      "Our tutoring sessions are conducted online, providing you with personalized, one-on-one support from experienced tutors. We tailor each session to your specific learning needs, ensuring you get the most out of every minute.",
-  },
-  {
-    question: "What subjects do you cover?",
-    answer:
-      "We offer a comprehensive range of subjects, including mathematics, sciences (biology, chemistry, physics), English language arts, history, and more. If you don't see your subject listed, please contact us – we're always expanding our offerings!",
-  },
-  {
-    question: "Can I choose my tutor?",
-    answer:
-      "Absolutely! We believe that a strong student-tutor connection is key to successful learning. You can browse our tutor profiles, read reviews, and select the tutor that best aligns with your learning style and subject matter expertise.",
-  },
-  {
-    question: "How do I schedule a session?",
-    answer:
-      "Scheduling a session is easy! Simply create an account on our platform, browse available tutors, and select a time that works for you. You can also purchase tutoring packages for discounted rates. We offer flexible scheduling to fit your busy lifestyle.",
-  },
-]);
+import { ref } from "vue";
+import { useAsyncData } from "#app";
+
+const openIndex = ref(null);
+
+const { data: faq, error } = await useAsyncData("faqs", async () => {
+  const { faqs, fetchFaqs } = useFaq(); // Get composable data
+  await fetchFaqs();
+  return faqs.value && Object.keys(faqs.value).length
+    ? faqs.value
+    : [
+        {
+          question: "How does tutoring work?",
+          answer:
+            "Our tutoring sessions are conducted online, providing personalized, one-on-one support from experienced tutors.",
+        },
+        {
+          question: "What subjects do you cover?",
+          answer:
+            "We offer a comprehensive range of subjects, including mathematics, sciences, English, history, and more.",
+        },
+        {
+          question: "Can I choose my tutor?",
+          answer:
+            "Absolutely! You can browse tutor profiles, read reviews, and select the tutor that best suits you.",
+        },
+        {
+          question: "How do I schedule a session?",
+          answer:
+            "Simply create an account, browse tutors, and book a session at a convenient time.",
+        },
+      ];
+});
+
 const toggleFAQ = (index) => {
   openIndex.value = openIndex.value === index ? null : index;
 };
-
-onMounted(async () => {
-  await fetchFaqs();
-  if (faqs.value.keys(obj).length) {
-    faq.value = faqs.value;
-  }
-});
 </script>

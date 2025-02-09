@@ -114,10 +114,8 @@ const { contactInfo, isLoading, error, fetchContactInfo, updateContactInfo } =
 const info = ref("");
 const isModalOpen = ref(false);
 
-onMounted(async () => {
-  await fetchContactInfo();
-  info.value = contactInfo.value;
-});
+await fetchContactInfo();
+info.value = contactInfo.value;
 
 const openModal = () => {
   isModalOpen.value = true;

@@ -125,10 +125,9 @@ const startAutoSlide = () => {
 const stopAutoSlide = () => {
   clearInterval(interval);
 };
-
+await loadTestimonial();
+testimonials.value = testimonialData.value;
 onMounted(async () => {
-  await loadTestimonial();
-  testimonials.value = testimonialData.value;
   if (testimonials.value && testimonials.value.length > 0) {
     startAutoSlide();
   }

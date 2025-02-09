@@ -66,10 +66,8 @@ const { contactInfo, isLoading, error, fetchContactInfo, updateContactInfo } =
 const socialsData = ref({
   socialLinks: {},
 });
-onMounted(async () => {
-  await fetchContactInfo();
-  socialsData.value = contactInfo.value;
-});
+await fetchContactInfo();
+socialsData.value = contactInfo.value;
 const getSocialIcon = (platform) => {
   const icons = {
     facebook: "fab fa-facebook",

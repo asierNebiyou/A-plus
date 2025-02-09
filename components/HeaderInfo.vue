@@ -4,11 +4,8 @@ const info = ref({});
 
 const { contactInfo, isLoading, error, fetchContactInfo, updateContactInfo } =
   useContact();
-
-onMounted(async () => {
-  await fetchContactInfo();
-  info.value = contactInfo.value;
-});
+await fetchContactInfo();
+info.value = contactInfo.value;
 </script>
 
 <template>

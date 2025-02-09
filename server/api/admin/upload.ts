@@ -8,7 +8,6 @@ export default defineEventHandler(async (event) => {
   const folderId = process.env.GOOGLE_DRIVE_FOLDER_ID;
   const base64EncodedServiceAccount = process.env.GOOGLE_SERVICE_ACCOUNT_KEY;
   const decodedServiceAccount = Buffer.from(base64EncodedServiceAccount, 'base64').toString('utf-8');
-  console.log(decodedServiceAccount)
 
   const credentials = JSON.parse(decodedServiceAccount);
   console.log(credentials)
@@ -52,7 +51,7 @@ export default defineEventHandler(async (event) => {
         type: "anyone",
       },
     });
-
+  console.log(`https://drive.google.com/uc?id=${fileId}`)
     return { url: `https://drive.google.com/uc?id=${fileId}` };
   } catch (error) {
     console.error("Upload Error:", error);

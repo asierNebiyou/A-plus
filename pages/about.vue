@@ -214,9 +214,8 @@
 <script lang="ts" setup>
 import { onMounted } from "vue";
 const { contactInfo, isLoading, fetchContactInfo } = useContact();
-
+await fetchContactInfo();
 onMounted(async () => {
-  await fetchContactInfo();
   const counters = document.querySelectorAll<HTMLElement>(".animate-counter");
 
   const observer = new IntersectionObserver(

@@ -3,22 +3,16 @@
     <div class="bg-gradient-to-b from-gray-50 to-gray-100 py-20 px-4">
       <div
         class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"
-      />
+      ></div>
 
       <div
         class="absolute top-40 left-40 w-80 h-80 bg-teal-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"
-      />
+      ></div>
 
       <!-- </div> -->
 
       <div class="px-4 sm:px-6 lg:px-8 relative">
-        <!-- Heading -->
-        <div
-          class="text-center mb-8"
-          v-motion
-          :initial="{ opacity: 0, y: 20 }"
-          :enter="{ opacity: 1, y: 0 }"
-        >
+        <div class="text-center mb-8">
           <h2 class="text-4xl md:text-5xl font-bold text-[#1E2755]">
             Simple, transparent pricing
           </h2>
@@ -66,9 +60,6 @@
           <div
             v-for="(plan, index) in pricingValues"
             :key="plan.name"
-            v-motion
-            :initial="{ opacity: 0, y: 20 }"
-            :enter="{ opacity: 1, y: 0, transition: { delay: index * 100 } }"
             class="relative flex flex-col bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
           >
             <!-- Popular badge -->
@@ -112,13 +103,6 @@
                 <li
                   v-for="(feature, i) in plan.features"
                   :key="i"
-                  v-motion
-                  :initial="{ opacity: 0, x: -10 }"
-                  :enter="{
-                    opacity: 1,
-                    x: 0,
-                    transition: { delay: 500 + i * 100 },
-                  }"
                   class="flex items-center"
                 >
                   <CheckCircle
@@ -154,7 +138,6 @@
     />
   </NuxtLayout>
 </template>
-Pricing
 
 <script setup>
 import { ref, onMounted } from "vue";
@@ -167,7 +150,7 @@ const isYearly = ref(false);
 
 const isModalOpen = ref(false);
 const modalSource = ref("");
-const pricingValues = ref("");
+// const pricingValues = ref("");
 const openModal = (source) => {
   modalSource.value = source;
   isModalOpen.value = true;
@@ -176,11 +159,17 @@ const openModal = (source) => {
 const closeModal = () => {
   isModalOpen.value = false;
 };
-
-onMounted(async () => {
-  await fetchPlans();
-  filteredPlans("monthly");
-});
+await fetchPlans();
+const pricingValues = computed(() =>
+  pricingPlans.value
+    ? pricingPlans.value.filter(
+        (plan) => plan.period === (isYearly.value ? "yearly" : "monthly")
+      )
+    : []
+);
+// onMounted(async () => {
+//   filteredPlans("monthly");
+// });
 
 const filteredPlans = (period) => {
   isYearly.value = period == "yearly" ? true : false;
