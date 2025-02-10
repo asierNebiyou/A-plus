@@ -11,7 +11,7 @@ export const sendEmail = async (to, subject, html) => {
   });
 
   const mailOptions = {
-    from: `"APlus Tutors" <${process.env.SMTP_USER}>`,
+    from: `"A Plus Tutoring" <${process.env.SMTP_USER}>`,
     to,
     subject,
     html,

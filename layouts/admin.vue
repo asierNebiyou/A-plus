@@ -6,7 +6,7 @@
         <a href="/"
           ><img
             src="/public/logo-light.png"
-            alt="Aplus Tutoring"
+            alt="A plus Tutors"
             class="h-12 m-auto"
           />
         </a>

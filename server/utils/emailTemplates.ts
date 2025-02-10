@@ -25,7 +25,7 @@ export async function getUserEmailTemplate(name) {
     <body>
         <div class="container">
             <div class="logo">
-                <img src="${myImageBase64}" alt="Aplus Logo">
+                <img src="${myImageBase64}" alt="A plus Logo">
             </div>
             <div class="header">
                 <h2 style="color: #007bff; margin-bottom: 0;">Thank you for your inquiry, ${name}!</h2>
@@ -35,7 +35,7 @@ export async function getUserEmailTemplate(name) {
                 <p style="line-height: 1.6;">We appreciate your interest in our services!</p>
             </div>
             <div class="footer">
-                Best regards,<br>Aplus Tutors
+                Best regards,<br>A plus Tutoring
             </div>
         </div>
     </body>
@@ -69,7 +69,7 @@ export async function getAdminEmailTemplate(data) {
     <body>
         <div class="container">
             <div class="logo">
-                <img src="${myImageBase64}" alt="Aplus Logo">
+                <img src="${myImageBase64}" alt="A plus Logo">
             </div>
             <div class="content">
                 <h2 style="color: #d32f2f; margin-bottom: 15px;">New Consultation Request</h2>
@@ -80,7 +80,7 @@ export async function getAdminEmailTemplate(data) {
             <p>Check the dashboard for more details.</p>
         </div>
         <div class="footer">
-            &copy; ${new Date().getFullYear()} Aplus Tutors. All rights reserved.
+            &copy; ${new Date().getFullYear()} A plus Tutoring. All rights reserved.
         </div>
     </div>
     </body>
