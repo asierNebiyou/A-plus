@@ -26,7 +26,7 @@
             >
               <!-- Larger Modal -->
               <DialogPanel
-                class="w-full max-w-5xl overflow-hidden rounded-2xl bg-white shadow-xl"
+                class="w-full max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl"
               >
                 <div class="flex">
                   <div class="hidden md:block md:w-1/2">
@@ -41,15 +41,17 @@
                       Book Your Free Consultation
                     </DialogTitle>
 
-                    <form @submit.prevent="submitForm" class="space-y-4">
-                      <input type="hidden" :value="source" />
-
+                    <!-- Show Form if Calendly is NOT yet visible -->
+                    <form
+                      v-if="!calendlyVisible"
+                      @submit.prevent="proceedToCalendly"
+                      class="space-y-4"
+                    >
                       <div>
                         <label
                           class="block text-sm font-medium text-gray-700 mb-1"
+                          >Name</label
                         >
-                          Name
-                        </label>
                         <input
                           type="text"
                           v-model="formData.name"
@@ -61,23 +63,8 @@
                       <div>
                         <label
                           class="block text-sm font-medium text-gray-700 mb-1"
+                          >Phone Number</label
                         >
-                          Email
-                        </label>
-                        <input
-                          type="email"
-                          v-model="formData.email"
-                          required
-                          class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green-500 focus:ring-green-500"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          class="block text-sm font-medium text-gray-700 mb-1"
-                        >
-                          Phone Number
-                        </label>
                         <input
                           type="tel"
                           v-model="formData.phone"
@@ -88,24 +75,34 @@
 
                       <button
                         type="submit"
-                        :disabled="loading"
                         class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors"
                       >
-                        {{
-                          loading ? "Submitting..." : "Schedule Consultation"
-                        }}
+                        Proceed to Schedule
                       </button>
-
-                      <p v-if="error" class="text-red-500 text-sm mt-2">
-                        {{ error }}
-                      </p>
-                      <p
-                        v-if="successMessage"
-                        class="text-green-500 text-sm mt-2 text-center w-full"
-                      >
-                        {{ successMessage }}
-                      </p>
                     </form>
+
+                    <!-- Show Calendly Iframe After Submission -->
+                    <div v-if="calendlyVisible" class="mt-6">
+                      <iframe
+                        :src="calendlyURL"
+                        width="100%"
+                        height="500"
+                        frameborder="0"
+                        scrolling="no"
+                        class="rounded-xl shadow-lg"
+                      ></iframe>
+                    </div>
+
+                    <!-- Error or Success Messages -->
+                    <p v-if="error" class="text-red-500 text-sm mt-2">
+                      {{ error }}
+                    </p>
+                    <p
+                      v-if="successMessage"
+                      class="text-green-500 text-sm mt-2 text-center w-full"
+                    >
+                      {{ successMessage }}
+                    </p>
                   </div>
                 </div>
               </DialogPanel>
@@ -139,28 +136,34 @@ const { addConsultation, loading, error } = useConsultation();
 
 const formData = ref({
   name: "",
-  email: "",
   phone: "",
 });
 
 const successMessage = ref("");
+const calendlyVisible = ref(false);
+const calendlyURL = ref("");
 
 const closeModal = () => {
   emit("close");
 };
 
-const submitForm = async () => {
+const proceedToCalendly = async () => {
   successMessage.value = "";
   try {
     await addConsultation({
       ...formData.value,
       source: props.source,
     });
-    successMessage.value = "We will contact you shortly!";
-    setTimeout(() => {
-      closeModal();
-      successMessage.value = "";
-    }, 2000);
+
+    // Set Calendly URL with prefilled information
+    calendlyURL.value = `https://calendly.com/asier-nebiyou-victory?name=${encodeURIComponent(
+      formData.value.name
+    )}&email=unknown@example.com&customAnswers[1]=${encodeURIComponent(
+      formData.value.phone
+    )}`;
+
+    // Show Calendly iframe
+    calendlyVisible.value = true;
   } catch (err) {
     console.error(err);
   }

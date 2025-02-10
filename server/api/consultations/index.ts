@@ -14,12 +14,12 @@ export default defineEventHandler(async (event) => {
 
     try {
       const newConsultation = await Consultation.create(body);
-      const userMailTemplate = await getUserEmailTemplate(body.name)
-      await sendEmail(
-        body.email,
-        "We received your inquiry!",
-        userMailTemplate
-      );
+      // const userMailTemplate = await getUserEmailTemplate(body.name)
+      // await sendEmail(
+      //   body.email,
+      //   "We received your inquiry!",
+      //   userMailTemplate
+      // );
 
       const adminMailTemplate =  await getAdminEmailTemplate(body)
       await sendEmail(
