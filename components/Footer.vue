@@ -74,6 +74,7 @@ const getSocialIcon = (platform) => {
     twitter: "fab fa-twitter text-[#1E2755]",
     linkedin: "fab fa-linkedin text-[#1E2755]",
     instagram: "fab fa-instagram text-[#1E2755]",
+    telegram: "fab fa-telegram  text-[#1E2755]",
   };
   return icons[platform];
 };
