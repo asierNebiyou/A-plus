@@ -5,15 +5,12 @@ import { useConsultation } from "~/composables/useSubmittions";
 const { consultations, loadConsultations, updateConsultation, loading, error } =
   useConsultation();
 const searchQuery = ref("");
-const statusFilter = ref(""); // New filter for status
+const statusFilter = ref("");
 const currentPage = ref(1);
 const pageSize = 5;
 
-onMounted(() => {
-  loadConsultations();
-});
+await loadConsultations();
 
-// Filtered consultations based on search and status
 const filteredConsultations = computed(() => {
   return consultations.value.filter((consultation) => {
     const matchesSearch = [
@@ -33,23 +30,19 @@ const filteredConsultations = computed(() => {
   });
 });
 
-// Paginated consultations
 const paginatedConsultations = computed(() => {
   const start = (currentPage.value - 1) * pageSize;
   return filteredConsultations.value.slice(start, start + pageSize);
 });
 
-// Handle status change
 const handleStatusChange = async (id, newStatus) => {
   await updateConsultation(id, { status: newStatus });
 };
 
-// Total pages
 const totalPages = computed(() =>
   Math.ceil(filteredConsultations.value.length / pageSize)
 );
 
-// Pagination handlers
 const nextPage = () => {
   if (currentPage.value < totalPages.value) currentPage.value++;
 };

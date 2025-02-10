@@ -101,7 +101,7 @@
                       </p>
                       <p
                         v-if="successMessage"
-                        class="text-green-500 text-sm mt-2"
+                        class="text-green-500 text-sm mt-2 text-center w-full"
                       >
                         {{ successMessage }}
                       </p>
@@ -156,7 +156,7 @@ const submitForm = async () => {
       ...formData.value,
       source: props.source,
     });
-    successMessage.value = "Your consultation has been scheduled!";
+    successMessage.value = "We will contact you shortly!";
     setTimeout(() => {
       closeModal();
       successMessage.value = "";

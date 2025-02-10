@@ -43,102 +43,6 @@
             </div>
           </div>
 
-          <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-lg font-medium text-gray-900 mb-4">Stats</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Students Empowered</label
-                >
-                <input
-                  v-model="form.stats.studentsEmpowered"
-                  type="number"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                  required
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Grade Improvement</label
-                >
-                <input
-                  v-model="form.stats.gradeImprovement"
-                  type="number"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                  required
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Tutorial Hours</label
-                >
-                <input
-                  v-model="form.stats.tutorialHours"
-                  type="number"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                  required
-                />
-              </div>
-            </div>
-          </div>
-
-          <!-- Address -->
-          <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-lg font-medium text-gray-900 mb-4">Address</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="md:col-span-2">
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Street Address</label
-                >
-                <input
-                  v-model="form.address.street"
-                  type="text"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >City</label
-                >
-                <input
-                  v-model="form.address.city"
-                  type="text"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >State</label
-                >
-                <input
-                  v-model="form.address.state"
-                  type="text"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >ZIP Code</label
-                >
-                <input
-                  v-model="form.address.zipCode"
-                  type="text"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Country</label
-                >
-                <input
-                  v-model="form.address.country"
-                  type="text"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                />
-              </div>
-            </div>
-          </div>
-
           <!-- Social Links -->
           <div class="bg-white rounded-lg shadow-sm p-6">
             <h2 class="text-lg font-medium text-gray-900 mb-4">
@@ -182,37 +86,40 @@
                   type="text"
                   class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
                 />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Introduction Video URL</label
-                >
-                <input
-                  accept="video/*"
-                  class="w-full p-2.5 border border-gray-200 rounded-lg"
-                  type="file"
-                  @change="handleFileChange"
-                  :disabled="uploading"
-                />
-
-                <div v-if="form.introVideo" class="mt-4">
-                  <video
-                    :src="form.introVideo"
-                    controls
-                    class="w-full rounded-lg shadow-sm"
-                  ></video>
+                <div v-if="form.podcastVideo" class="mt-4">
+                  <iframe
+                    class="w-full aspect-video"
+                    :src="form.podcastVideo"
+                    title="Video"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
                 </div>
               </div>
 
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Google Maps Embed Code</label
+                  >Introduction Video URL</label
                 >
-                <textarea
-                  v-model="form.mapEmbed"
-                  rows="3"
+                <input
+                  v-model="form.introVideo"
+                  type="text"
                   class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
-                ></textarea>
+                />
+
+                <div v-if="form.introVideo" class="mt-4">
+                  <div class="p-4">
+                    <iframe
+                      class="w-full aspect-video"
+                      :src="form.introVideo"
+                      title="Video"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -242,14 +149,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, computed } from "vue";
-import { useRuntimeConfig } from "#app";
+import { ref, watch } from "vue";
+// import { useRuntimeConfig } from "#app";
 import { CheckCircleIcon } from "@heroicons/vue/24/outline";
 
-const config = useRuntimeConfig();
-const folderId = config.public.FOLDER_ID;
+// const config = useRuntimeConfig();
+// const folderId = config.public.FOLDER_ID;
 
-const { uploadVideo, uploading } = useGoogleDrive();
+// const { uploadVideo, uploading } = useGoogleDrive();
 const {
   contactInfo,
   isLoading,
@@ -273,10 +180,11 @@ const form = ref({
     twitter: "",
     linkedin: "",
     instagram: "",
+    tiktok: "",
+    telegram: "",
   },
   introVideo: "",
   podcastVideo: "",
-  mapEmbed: "",
   stats: {
     studentsEmpowered: 0,
     gradeImprovement: 0,
@@ -287,14 +195,12 @@ const form = ref({
 const file = ref(null);
 const showSuccessToast = ref(false);
 
-const handleFileChange = (event) => {
-  const target = event.target;
-  file.value = target.files?.[0] || null;
-};
+// const handleFileChange = (event) => {
+//   const target = event.target;
+//   file.value = target.files?.[0] || null;
+// };
 
-onMounted(async () => {
-  await fetchContactInfo();
-});
+await fetchContactInfo();
 
 watch(
   contactInfo,
@@ -312,16 +218,18 @@ const getSocialIcon = (platform) => {
     twitter: "fab fa-twitter",
     linkedin: "fab fa-linkedin",
     instagram: "fab fa-instagram",
+    tiktok: "fab fa-tiktok",
+    telegram: "fab fa-telegram",
   };
   return icons[platform];
 };
 
 const handleSubmit = async () => {
   try {
-    if (file.value) {
-      form.value.introVideo = await uploadVideo(file.value);
-      console.log(form.value.introVideo);
-    }
+    // if (file.value) {
+    //   form.value.introVideo = await uploadVideo(file.value);
+    //   console.log(form.value.introVideo);
+    // }
     await updateContactInfo(form.value);
     showSuccessToast.value = true;
     setTimeout(() => {

@@ -1,12 +1,11 @@
 <script setup>
-import Footer from "~/components/Footer.vue";
 import Testimonial from "~/components/Testimonial.vue";
 import Faq from "~/components/Faq.vue";
 </script>
 
 <template>
   <NuxtLayout name="layout">
-    <div class="min-h-screen flex flex-col">
+    <div class="flex flex-col">
       <HeroPage />
     </div>
     <div class="min-h-screen flex flex-col container-lg mx-auto">

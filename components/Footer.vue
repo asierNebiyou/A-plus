@@ -70,10 +70,10 @@ await fetchContactInfo();
 socialsData.value = contactInfo.value;
 const getSocialIcon = (platform) => {
   const icons = {
-    facebook: "fab fa-facebook",
-    twitter: "fab fa-twitter",
-    linkedin: "fab fa-linkedin",
-    instagram: "fab fa-instagram",
+    facebook: "fab fa-facebook text-[#1E2755]",
+    twitter: "fab fa-twitter text-[#1E2755]",
+    linkedin: "fab fa-linkedin text-[#1E2755]",
+    instagram: "fab fa-instagram text-[#1E2755]",
   };
   return icons[platform];
 };
