@@ -42,7 +42,7 @@
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-2"
-                  >Calendly link</label
+                  >Scheduler link</label
                 >
                 <input
                   v-model="form.calendarly"

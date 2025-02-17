@@ -89,7 +89,7 @@
                     ></path>
                   </svg>
                   <span class="text-gray-600 group-hover:text-[#1E2755]"
-                    >Expert tutors with proven track records of student
+                    >Expert tutoring with proven track records of student
                     success</span
                   >
                 </li>
