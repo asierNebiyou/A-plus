@@ -77,7 +77,11 @@
                         type="submit"
                         class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors"
                       >
-                        Proceed to Schedule
+                        {{
+                          LoadingCalendarly
+                            ? "Loading schedule ..."
+                            : "Proceed to Schedule"
+                        }}
                       </button>
                     </form>
 
@@ -143,12 +147,15 @@ await fetchContactInfo();
 const successMessage = ref("");
 const calendlyVisible = ref(false);
 const calendlyURL = ref("");
+const LoadingCalendarly = ref(false);
 
 const closeModal = () => {
   emit("close");
 };
-
+await fetchContactInfo();
+calendlyURL.value = contactInfo.value.calendarly;
 const proceedToCalendly = async () => {
+  LoadingCalendarly.value = true;
   successMessage.value = "";
   try {
     await addConsultation({
@@ -157,15 +164,17 @@ const proceedToCalendly = async () => {
     });
 
     if (calendlyURL) {
-      calendlyURL.value = `${contactInfo.calendarly}?name=${encodeURIComponent(
+      calendlyURL.value = `${calendlyURL.value}?name=${encodeURIComponent(
         formData.value.name
       )}&email=unknown@example.com&customAnswers[1]=${encodeURIComponent(
         formData.value.phone
       )}`;
     }
 
+    LoadingCalendarly.value = false;
     calendlyVisible.value = true;
   } catch (err) {
+    LoadingCalendarly.value = false;
     console.error(err);
   }
 };

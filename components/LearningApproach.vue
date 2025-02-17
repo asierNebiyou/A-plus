@@ -75,7 +75,7 @@
     <Teleport to="body">
       <div
         v-if="isModalOpen"
-        class="z-10 fixed inset-0 flex items-center justify-center bg-black bg-opacity-60"
+        class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 z-50"
       >
         <div
           class="bg-white p-4 rounded-lg shadow-lg max-w-3xl w-full relative"

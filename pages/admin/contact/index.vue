@@ -112,6 +112,31 @@
                 </div>
               </div>
             </div>
+            <div class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Podcast Video URL</label
+                >
+                <input
+                  v-model="form.podcastVideo"
+                  type="text"
+                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
+                />
+
+                <div v-if="form.podcastVideo" class="mt-4">
+                  <div class="p-4">
+                    <iframe
+                      class="w-full aspect-video"
+                      :src="form.podcastVideo"
+                      title="Video"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="flex justify-end">

@@ -74,7 +74,6 @@ export async function getAdminEmailTemplate(data) {
             <div class="content">
                 <h2 style="color: #d32f2f; margin-bottom: 15px;">New Consultation Request</h2>
                 <p><span class="important">Name:</span> ${data.name}</p>
-            <p><span class="important">Email:</span> ${data.email}</p>
             <p><span class="important">Phone:</span> ${data.phone}</p>
             <p><span class="important">Source:</span> ${data.source}</p>
             <p>Check the dashboard for more details.</p>
