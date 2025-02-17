@@ -16,15 +16,16 @@
         <!-- Left Section -->
         <div class="relative overflow-hidden">
           <h1 class="text-3xl font-bold mb-4 pt-5 mt-7 text-[#2E3E5C]">
-            People are Saying About A plus
+            People are Saying About <br />
+            A plus Tutoring.
           </h1>
           <p class="mb-6 text-black">
-            Empowering you to learn, grow, and succeed with the best tutors at
+            Empowering you to learn, grow, and succeed with the best tutoring at
             your fingertips.
           </p>
 
           <!-- Testimonial Carousel -->
-          <div class="w-full h-32">
+          <div class="w-full h-35">
             <div
               class="flex transition-transform duration-500 ease-in-out"
               :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
@@ -50,8 +51,7 @@
         <!-- Right Section -->
         <div class="bg-gray-800 p-8 rounded-lg shadow-md">
           <h2 class="text-2xl font-bold mb-4 text-center">
-            Get Started With Aplus <br />
-            tutors 📚
+            Get Started With <br />A plus Tutoring
           </h2>
           <form @submit.prevent="submitForm">
             <input type="hidden" :value="source" />

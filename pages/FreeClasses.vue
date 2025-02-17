@@ -48,7 +48,7 @@
           <!-- Feature 2 -->
           <div class="rounded-lg bg-white p-8 shadow-sm">
             <div class="text-green-600 mb-4"></div>
-            <h3 class="text-xl font-semibold text-gray-900">Expert Tutors</h3>
+            <h3 class="text-xl font-semibold text-gray-900">Expert Tutoring</h3>
             <p class="mt-2 text-gray-500">
               Learn from experienced educators who are passionate about student
               success.
