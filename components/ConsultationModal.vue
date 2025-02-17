@@ -133,12 +133,13 @@ const props = defineProps({
 
 const emit = defineEmits(["close"]);
 const { addConsultation, loading, error } = useConsultation();
+const { contactInfo, isLoading, error: err, fetchContactInfo } = useContact();
 
 const formData = ref({
   name: "",
   phone: "",
 });
-
+await fetchContactInfo();
 const successMessage = ref("");
 const calendlyVisible = ref(false);
 const calendlyURL = ref("");
@@ -155,14 +156,14 @@ const proceedToCalendly = async () => {
       source: props.source,
     });
 
-    // Set Calendly URL with prefilled information
-    calendlyURL.value = `https://calendly.com/asier-nebiyou-victory?name=${encodeURIComponent(
-      formData.value.name
-    )}&email=unknown@example.com&customAnswers[1]=${encodeURIComponent(
-      formData.value.phone
-    )}`;
+    if (calendlyURL) {
+      calendlyURL.value = `${contactInfo.calendarly}?name=${encodeURIComponent(
+        formData.value.name
+      )}&email=unknown@example.com&customAnswers[1]=${encodeURIComponent(
+        formData.value.phone
+      )}`;
+    }
 
-    // Show Calendly iframe
     calendlyVisible.value = true;
   } catch (err) {
     console.error(err);

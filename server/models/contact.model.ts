@@ -4,6 +4,7 @@ const ContactInfoSchema = new Schema(
   {
     email: { type: String, required: true, trim: true, lowercase: true },
     phone: { type: String, required: true, trim: true },
+    calendarly:{type: String, required: true, trim: true },
     socialLinks: {
       facebook: { type: String, trim: true },
       twitter: { type: String, trim: true },

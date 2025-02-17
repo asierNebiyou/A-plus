@@ -65,8 +65,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const { contactInfo, isLoading, error, fetchContactInfo, updateContactInfo } =
-  useContact();
+const { contactInfo, isLoading, error, fetchContactInfo } = useContact();
 const socialsData = ref({
   socialLinks: {},
 });
@@ -79,6 +78,7 @@ const getSocialIcon = (platform) => {
     linkedin: "fab fa-linkedin text-[#1E2755]",
     instagram: "fab fa-instagram text-[#1E2755]",
     telegram: "fab fa-telegram  text-[#1E2755]",
+    tiktok: "fab fa-tiktok text-[#1E2755]",
   };
   return icons[platform];
 };

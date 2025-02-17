@@ -40,6 +40,17 @@
                   required
                 />
               </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Calendly link</label
+                >
+                <input
+                  v-model="form.calendarly"
+                  type="tel"
+                  class="w-full p-2.5 border border-gray-200 rounded-lg focus:ring-[#92A75A] focus:border-[#92A75A]"
+                  required
+                />
+              </div>
             </div>
           </div>
 
@@ -164,6 +175,7 @@ const form = ref({
   },
   introVideo: "",
   podcastVideo: "",
+  calendarly: "",
   stats: {
     studentsEmpowered: 0,
     gradeImprovement: 0,
