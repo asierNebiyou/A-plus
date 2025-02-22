@@ -1,7 +1,7 @@
 <script setup>
 const route = useRoute();
 const { trackReferral } = useReferral();
-import { useRouter } from "vue";
+import { useRouter, useLoadingIndicator } from "#imports";
 
 const router = useRouter();
 const loading = useLoadingIndicator();
