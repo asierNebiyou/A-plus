@@ -43,7 +43,7 @@
               :to="'/admin/blog/edit/' + post.id"
               class="text-blue-600 hover:underline font-medium"
             >
-              <img
+              <NuxtImg
                 :src="post.image || '/default-blog.png'"
                 alt="Blog Image"
                 class="w-full h-48 object-cover"

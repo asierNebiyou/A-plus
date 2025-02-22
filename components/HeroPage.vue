@@ -89,7 +89,7 @@ const closeModal = () => {
             <div
               class="inset-7 bg-gray-100 rounded-full w-[320px] h-[320px] mx-2 my-2"
             ></div>
-            <img
+            <NuxtImg
               src="/public/heroimage.png"
               alt="Hero image"
               class="object-cover absolute -top-20 min-w-[410px] -left-5"

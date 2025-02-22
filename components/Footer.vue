@@ -5,7 +5,7 @@
       <div class="flex flex-col md:flex-row justify-between items-center mb-8">
         <!-- Logo -->
         <div class="mb-6 md:mb-0">
-          <img
+          <NuxtImg
             src="/public/logo-light.png"
             alt="A plus tutoring"
             class="h-12"

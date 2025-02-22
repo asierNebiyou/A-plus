@@ -30,7 +30,7 @@
               >
                 <div class="flex">
                   <div class="hidden md:block md:w-1/2">
-                    <img
+                    <NuxtImg
                       src="/image.png"
                       alt="Tutoring Session"
                       class="h-full w-full object-cover"

@@ -5,7 +5,11 @@
     <div class="flex justify-between items-center">
       <!-- Logo -->
       <a href="/">
-        <img src="/public/logo-light.png" alt="Aplus Tutoring" class="h-12" />
+        <NuxtImg
+          src="/public/logo-light.png"
+          alt="Aplus Tutoring"
+          class="h-12"
+        />
       </a>
 
       <!-- Hamburger Button for Mobile -->

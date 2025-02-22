@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  modules: ['@nuxtjs/tailwindcss','@nuxtjs/web-vitals',"@nuxtjs/sitemap"],
+  modules: ['@nuxtjs/tailwindcss','@nuxtjs/web-vitals',"@nuxtjs/sitemap",'@nuxt/image'],
    sitemap: {
     hostname: process.env.BASE_URL,
     routes: ['/','about','/contact','/pricing','/privacy-policy','/free-classes', '/contact']
@@ -51,7 +51,21 @@ export default defineNuxtConfig({
     },
   },
   nitro:{
-    plugins:['~/server/index.ts']
+     compressPublicAssets: true,
+    plugins:['~/server/index.ts'],
+     prerender: {
+      routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
+    },
+     preset: 'vercel-edge'
+  },
+    routeRules: {
+    // Cache static pages for 1 hour (3600 seconds)
+    '/': { swr: 3600 },
+    '/about': { swr: 3600 },
+    '/contact': { swr: 3600 },
+    '/pricing': { isr: 600 },
+    '/privacy-policy': { swr: 3600 },
+    '/terms-of-service': { swr: 3600 },
   },
   runtimeConfig:{
      mongodburi:process.env.MONGOOSE_URL,

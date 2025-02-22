@@ -5,7 +5,7 @@
     <div class="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200">
       <div class="flex items-center h-16 px-6 border-b border-gray-200">
         <a href="/"
-          ><img
+          ><NuxtImg
             src="/public/logo-light.png"
             alt="A plus Tutoring"
             class="h-12 m-auto"
