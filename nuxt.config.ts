@@ -56,7 +56,11 @@ export default defineNuxtConfig({
      prerender: {
       routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
     },
-     preset: 'vercel-edge'
+     preset: 'vercel-edge',
+     externals: {
+      inline: ['@aws-sdk/credential-providers', 'mongodb']
+    }
+
   },
     routeRules: {
     // Cache static pages for 1 hour (3600 seconds)

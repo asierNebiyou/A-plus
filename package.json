@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@aws-sdk/credential-providers": "^3.750.0",
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
