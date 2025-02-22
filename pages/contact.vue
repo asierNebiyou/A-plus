@@ -88,7 +88,7 @@
                 placeholder="Enter your phone Number."
               />
             </div>
-            <div class="mb-4 flex items-start">
+            <div class="mb-4 flex items-center">
               <input
                 type="checkbox"
                 id="consent"
