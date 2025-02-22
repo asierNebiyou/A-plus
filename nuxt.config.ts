@@ -57,9 +57,7 @@ export default defineNuxtConfig({
       routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
     },
      preset: 'vercel-edge',
-     externals: {
-      inline: ['@aws-sdk/credential-providers', 'mongodb']
-    }
+    
 
   },
     routeRules: {
