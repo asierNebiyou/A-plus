@@ -1,5 +1,5 @@
 import { Admin } from "~/server/models/user.model";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import { setCookie } from "h3";
 import jwt from "jsonwebtoken";
 

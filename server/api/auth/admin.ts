@@ -1,5 +1,5 @@
 import { Admin } from "~/server/models/user.model";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcryptjs';
 import { defineEventHandler, readBody } from "h3";
 
 export default defineEventHandler(async (event) => {
