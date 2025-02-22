@@ -61,7 +61,7 @@
       <!-- Features Grid -->
       <div class="grid grid-cols-2 gap-3">
         <div v-for="feature in features" :key="feature.title" class="bg-white">
-          <NuxtImg
+          <img
             :src="feature.img"
             :alt="feature.title"
             class="object-cover rounded-2xl my-2 hover:scale-105 transition"
