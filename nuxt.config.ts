@@ -1,7 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss','@nuxtjs/web-vitals',"@nuxtjs/sitemap"],
+   sitemap: {
+    hostname: process.env.BASE_URL,
+    routes: ['/','about','/contact','/pricing','/privacy-policy','/free-classes', '/contact']
+  },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   css: [
@@ -19,7 +23,7 @@ export default defineNuxtConfig({
        htmlAttrs: {
       lang: 'en'
     },
-    title: 'A Plus',
+    title: 'A Plus Tutoring',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
@@ -29,6 +33,20 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap',
         },
+         {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/logo-dark.png' 
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '180x180',
+          href: '/icons/apple-touch-icon.png' 
+        },
+        {
+          rel: 'manifest',
+          href: '/webmanifest.json',
+        },
       ],
     },
   },
@@ -36,6 +54,9 @@ export default defineNuxtConfig({
     plugins:['~/server/index.ts']
   },
   runtimeConfig:{
-    mongodburi:process.env.MONGOOSE_URL
+     mongodburi:process.env.MONGOOSE_URL,
+     public: {
+      BASE_URL: process.env.BASE_URL || '/'
+    }
   },
 })

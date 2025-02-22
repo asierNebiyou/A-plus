@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#2E3E5C] py-8 px-4 md:px-8">
+  <footer class="bg-[#2E3E5C] py-8 px-4 md:px-8 mt-5">
     <div class="max-w-6xl mx-auto">
       <!-- Top Section with Logo and Social Icons -->
       <div class="flex flex-col md:flex-row justify-between items-center mb-8">
@@ -15,15 +15,15 @@
         <!-- Social Media Icons -->
         <div class="flex">
           <div v-for="(_, platform) in socialsData.socialLinks">
-            <a
+            <NuxtLink
               v-if="socialsData.socialLinks[platform]"
               :key="platform"
-              :href="socialsData.socialLinks[platform]"
+              :to="socialsData.socialLinks[platform]"
               :aria-label="platform"
               class="bg-[#92A75A] mx-4 w-10 h-10 rounded-full bg-sage-500 flex items-center justify-center hover:bg-sage-600 transition-colors"
             >
               <i :class="getSocialIcon(platform)"></i>
-            </a>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -35,14 +35,14 @@
 
         <!-- Navigation Links -->
         <nav class="flex flex-wrap justify-center gap-6">
-          <a
+          <NuxtLink
             v-for="(link, index) in links"
             :key="index"
-            :href="link.url"
+            :to="link.url"
             class="text-white hover:text-sage-500 transition-colors"
           >
             {{ link.name }}
-          </a>
+          </NuxtLink>
         </nav>
 
         <!-- Contact Button -->
@@ -85,8 +85,8 @@ const getSocialIcon = (platform) => {
 
 const links = ref([
   { name: "About Us", url: "/about" },
-  { name: "Terms of use", url: "/terms" },
-  { name: "Privacy policy", url: "/privacy" },
+  { name: "Privacy policy", url: "/privacy-policy" },
+  { name: "Terms of Service", url: "/terms-of-service" },
 ]);
 </script>
 

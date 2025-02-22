@@ -126,10 +126,10 @@
   </NuxtLayout>
 </template>
 
-<script lang="ts" setup>
+<!-- <script lang="ts" setup>
 const { contactInfo, isLoading, fetchContactInfo } = useContact();
 await fetchContactInfo();
-</script>
+</script> -->
 
 <style scoped>
 @keyframes spin-slow {

@@ -72,10 +72,23 @@
                           class="w-full rounded-md border border-gray-300 px-4 py-2 focus:border-green-500 focus:ring-green-500"
                         />
                       </div>
-
+                      <div class="mb-4 flex items-start">
+                        <input
+                          type="checkbox"
+                          id="consent"
+                          v-model="formData.consent"
+                          required
+                          class="mr-2 mt-2"
+                        />
+                        <label for="consent" class="text-sm text-gray-700">
+                          By providing my phone number and email, I consent to
+                          be contacted by A Plus Tutoring.
+                        </label>
+                      </div>
                       <button
                         type="submit"
-                        class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors"
+                        :disabled="!formData.consent"
+                        class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors disabled:bg-gray-600"
                       >
                         {{
                           LoadingCalendarly
@@ -142,6 +155,7 @@ const { contactInfo, isLoading, error: err, fetchContactInfo } = useContact();
 const formData = ref({
   name: "",
   phone: "",
+  consent: false,
 });
 await fetchContactInfo();
 const successMessage = ref("");

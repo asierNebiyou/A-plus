@@ -88,10 +88,23 @@
                 placeholder="Enter your phone Number."
               />
             </div>
+            <div class="mb-4 flex items-start">
+              <input
+                type="checkbox"
+                id="consent"
+                v-model="formData.consent"
+                required
+                class="mr-2"
+              />
+              <label for="consent" class="text-sm text-white">
+                By providing my phone number and email, I consent to be
+                contacted by A Plus Tutoring.
+              </label>
+            </div>
             <button
               type="submit"
-              :disabled="loading"
-              class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors"
+              :disabled="loading || !formData.consent"
+              class="w-full bg-[#92A75A] text-white py-3 px-6 rounded-md hover:bg-green-700 transition-colors disabled:bg-gray-600"
             >
               {{ loading ? "Submitting..." : "Request a Consultation" }}
             </button>
@@ -160,11 +173,11 @@ onMounted(async () => {
 
 onUnmounted(stopAutoSlide);
 
-// Form submission logic
 const formData = ref({
   name: "",
   email: "",
   phone: "",
+  consent: false,
 });
 const successMessage = ref("");
 

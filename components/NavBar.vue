@@ -130,7 +130,7 @@
         <NuxtLink to="/contact" class="text-gray-700 hover:text-[#92A75A]">
           Contact Us
         </NuxtLink>
-        <NuxtLink to="/freeclasses" class="text-gray-700 hover:text-[#92A75A]">
+        <NuxtLink to="/free-classes" class="text-gray-700 hover:text-[#92A75A]">
           Classes
         </NuxtLink>
       </div>
@@ -154,7 +154,7 @@
         <NuxtLink to="/contact" class="text-gray-700 hover:text-[#92A75A]">
           Contact Us
         </NuxtLink>
-        <NuxtLink to="/freeclasses" class="text-gray-700 hover:text-[#92A75A]">
+        <NuxtLink to="/free-classes" class="text-gray-700 hover:text-[#92A75A]">
           Classes
         </NuxtLink>
       </div>
