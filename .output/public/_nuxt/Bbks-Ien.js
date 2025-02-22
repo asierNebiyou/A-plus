@@ -1,0 +1,1 @@
+import{_ as t}from"./6mNI8m8k.js";import{y as a,m as s,n as r,e as u,o as _,w as m,a as p}from"./Byu8kLTl.js";const f=a({__name:"index",setup(i){const o=s();return r(()=>{o.push("/admin/pricing")}),(c,e)=>{const n=t;return _(),u(n,{name:"admin"},{default:m(()=>e[0]||(e[0]=[p("div",null,"hello",-1)])),_:1})}}});export{f as default};
