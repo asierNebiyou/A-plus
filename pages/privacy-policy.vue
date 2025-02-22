@@ -98,13 +98,71 @@
               We implement administrative, technical, and physical safeguards to
               ensure the security of your personal data.
             </p>
+            <h3 class="text-xl font-semibold text-[#1E2755]">
+              6. Sharing Your Information
+            </h3>
+            <p class="text-gray-600">
+              No mobile information will be shared with third parties/affiliates
+              for marketing/promotional purposes. All other categories exclude
+              text messaging originator opt-in data and consent; this
+              information will not be shared with any third parties.
+            </p>
+            <p class="text-gray-600">
+              We also do not sell, rent, or share any other personal information
+              we collect with third-party providers for marketing purposes. We
+              only use your personal information to improve the quality of our
+              services.
+            </p>
+
+            <h3 class="text-xl font-semibold text-[#1E2755]">
+              7. Retention of Personal Information
+            </h3>
+            <p class="text-gray-600">
+              We retain your personal information for as long as it is necessary
+              to fulfill the purposes outlined in this privacy policy and comply
+              with legal obligations.
+            </p>
+
+            <h3 class="text-xl font-semibold text-[#1E2755]">8. Your Rights</h3>
+            <ul class="space-y-4">
+              <li class="text-gray-600">
+                • Access, update, or delete your personal information.
+              </li>
+              <li class="text-gray-600">
+                • Withdraw your consent to receive communications at any time by
+                contacting us.
+              </li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-[#1E2755]">
+              9. Contact Information
+            </h3>
+            <p class="text-gray-600">
+              If you have any questions about this privacy policy or wish to
+              make a request regarding your personal information, please contact
+              us at:
+            </p>
+            <ul class="space-y-4">
+              <li class="text-gray-600">• Phone: +1 (303) 720-6070</li>
+              <li class="text-gray-600">• Email: Admin@aplusmentors.com</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold text-[#1E2755]">
+              10. Changes to This Privacy Policy
+            </h3>
+            <p class="text-gray-600">
+              We may update this privacy policy from time to time to reflect
+              changes in our practices or legal requirements. We will notify you
+              of any significant changes by updating the effective date at the
+              top of this page and communicating the update via mediums you have
+              given consent to receive notifications.
+            </p>
           </div>
         </div>
       </div>
     </section>
   </NuxtLayout>
 </template>
-
 <script lang="ts" setup></script>
 
 <style>
