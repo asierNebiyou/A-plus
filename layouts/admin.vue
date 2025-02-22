@@ -1,4 +1,5 @@
 <template>
+  <NuxtLoadingIndicator height="5" color="#1E2755" />
   <div class="min-h-screen bg-gray-50 flex">
     <!-- Sidebar -->
     <div class="fixed inset-y-0 left-0 w-64 bg-white border-r border-gray-200">
