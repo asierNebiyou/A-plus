@@ -58,7 +58,7 @@ export default defineNuxtConfig({
     },
      preset: 'vercel-edge',
      externals: {
-      inline: ['@aws-sdk/credential-providers', 'mongodb']
+      inline: ['@aws-sdk/credential-providers', 'mongodb','bcrypt', 'aws-sdk']
     }
 
   },
