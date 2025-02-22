@@ -88,7 +88,7 @@
                 placeholder="Enter your phone Number."
               />
             </div>
-            <div class="mb-4 flex items-center">
+            <div class="mb-4 flex items-start">
               <input
                 type="checkbox"
                 id="consent"
@@ -97,8 +97,10 @@
                 class="mr-2"
               />
               <label for="consent" class="text-sm text-white">
-                By providing my phone number and email, I consent to be
-                contacted by A Plus Tutoring.
+                By providing a telephone number and submitting this form you are
+                consenting to be contacted by SMS text message. Message & data
+                rates may apply. You can reply STOP to opt-out of further
+                messaging and reply HELP for more helpful information.
               </label>
             </div>
             <button
