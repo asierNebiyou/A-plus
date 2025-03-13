@@ -41,7 +41,7 @@
             <!-- Edit/Delete Icons -->
             <div class="absolute top-4 right-4 flex space-x-3">
               <NuxtLink
-                :to="`/admin/pricing/edit/${plan._id}`"
+                :to="`/admin/pricing/${plan._id}`"
                 class="text-gray-400 hover:text-gray-600"
               >
                 <PencilIcon class="w-5 h-5" />

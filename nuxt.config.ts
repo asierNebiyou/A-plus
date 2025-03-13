@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
 
   modules: ['@nuxtjs/tailwindcss','@nuxtjs/web-vitals',"@nuxtjs/sitemap",'@nuxt/image'],
-   sitemap: {
+  sitemap: {
     hostname: process.env.BASE_URL,
     routes: ['/','about','/contact','/pricing','/privacy-policy','/free-classes', '/contact']
   },
