@@ -72,7 +72,7 @@ export default defineNuxtConfig({
   runtimeConfig:{
      mongodburi:process.env.MONGOOSE_URL,
      public: {
-      BASE_URL: process.env.BASE_URL || '/'
+      BASE_URL: process.env.BASE_URL 
     }
   },
 })
