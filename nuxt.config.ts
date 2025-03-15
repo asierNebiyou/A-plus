@@ -57,9 +57,6 @@ export default defineNuxtConfig({
       routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
     },
      preset: 'netlify'
-        
-   
-
   },
     routeRules: {
     // Cache static pages for 1 hour (3600 seconds)

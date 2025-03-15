@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@aws-sdk/credential-providers": "^3.758.0",
+
     "@fortawesome/fontawesome-free": "^6.7.2",
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",
@@ -25,6 +25,7 @@
     "start": "nuxt start"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.10.0",
     "@nuxt/devtools": "^2.1.0"
   }
 }
