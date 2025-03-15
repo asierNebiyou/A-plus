@@ -15,8 +15,8 @@ export default defineNuxtConfig({
   build: {
       transpile: ['vue-toastification', '@tiptap/vue-3',
       '@tiptap/starter-kit',
-      '@tiptap/pm']
-      
+      '@tiptap/pm'],
+
     },
   app: {
     head: {
@@ -56,10 +56,8 @@ export default defineNuxtConfig({
      prerender: {
       routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
     },
-     preset: 'vercel-edge',
-    externals: {
-      inline: ['@aws-sdk/credential-providers']
-    }
+
+   
 
   },
     routeRules: {
