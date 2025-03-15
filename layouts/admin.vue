@@ -113,7 +113,6 @@ const menuItems = [
   { name: "Pricing Plans", path: "/admin/pricing", icon: CurrencyDollarIcon },
   { name: "Contact", path: "/admin/contact", icon: UsersIcon },
   { name: "Referrals", path: "/admin/referrals", icon: CursorArrowRaysIcon },
-  { name: "Blog", path: "/admin", icon: CogIcon },
   {
     name: "Submissions",
     path: "/admin/consultation",
