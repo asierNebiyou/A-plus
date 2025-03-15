@@ -56,7 +56,8 @@ export default defineNuxtConfig({
      prerender: {
       routes: ['/','/about','/contact','/pricing','/privacy-policy','/terms-of-service']
     },
-
+     preset: 'netlify'
+        
    
 
   },
